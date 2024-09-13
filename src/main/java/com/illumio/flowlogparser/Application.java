@@ -13,17 +13,12 @@ public class Application {
         String flowLogFile = args[0];
         String lookupFile = args[1];
         try {
-            // Parse lookup table
-            LookupTableReader lookupTableParser = new LookupTableReader();
-            List<LookupEntry> lookupEntries = lookupTableParser.parseLookupTable(INPUT_DIR + "/" + lookupFile);
 
-            // Parse flow logs
-            FlowLogReader flowLogParser = new FlowLogReader();
-            List<FlowLogEntry> flowLogEntries = flowLogParser.parseFlowLogs(INPUT_DIR + "/" + flowLogFile);
+            CustomFileReader fileReader = new CustomFileReader();
 
-            //Load protocol-numbers.txt
-            ProtocolLoader protocolLoader = new ProtocolLoader();
-            Map<String, String> protocolMap = protocolLoader.loadProtocolMap();
+            List<LookupEntry> lookupEntries = fileReader.readLookupTable(INPUT_DIR + "/" + lookupFile);
+            List<FlowLogEntry> flowLogEntries = fileReader.readFlowLogs(INPUT_DIR + "/" + flowLogFile);
+            Map<String, String> protocolMap = fileReader.readProtocolMap();
 
             // Match tags and count port/protocol combinations
             TagMatcher tagMatcher = new TagMatcher(lookupEntries, protocolMap);
