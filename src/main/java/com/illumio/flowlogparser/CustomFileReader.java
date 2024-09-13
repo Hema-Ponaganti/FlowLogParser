@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 public class CustomFileReader {
 
-    private static final Logger LOGGER = Logger.getLogger(ProtocolLoader.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(CustomFileReader.class.getName());
     private static final String PROTOCOL_FILE = "resources/protocol-numbers.txt";
 
     public List<FlowLogEntry> readFlowLogs(String filename) throws IOException {
