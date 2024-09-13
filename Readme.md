@@ -1,8 +1,8 @@
-# FlowLogParser
+## FlowLogParser
 
 FlowLogParser is a Java application designed to analyze network flow logs and generate statistical reports. It parses flow log entries, matches them against a lookup table, and produces output files with tag counts and port/protocol combination counts.
 
-## Java files description
+### Java files description
 - src folder contains all the java files for the logic.
 
     Application.java is main class and entry point of the application. It orchestrates the entire flow log analysis process.
@@ -15,7 +15,7 @@ FlowLogParser is a Java application designed to analyze network flow logs and ge
     TagMatcher.java matches flow log entries against the lookup table and counts occurrences. Uses the protocol map for resolving protocol names.
 
 
-### Execution
+### Run application using below commands
 
 ```
 javac -d out src/main/java/com/illumio/flowlogparser/*.java
